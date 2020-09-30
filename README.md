@@ -1,3 +1,42 @@
+## FOR OGE
+
+Clone this repository somewhere to your account on hutchentoot.
+
+Change directories with 'cd' into sphereface\_pytorch.
+
+Create a conda environment on hutchentoot using the following command:
+```
+conda env create -f sphereface_pytorch.yml
+```
+
+That should probably take a bit of time to set up.
+
+After that, make sure all of your images are in one folder. They can have the extensions: .png, .jpg, .jpeg.
+We can probably change that to add more, but that's what supported as of now.
+
+Once those are all in the same folder, you can run the following command to detect faces, extract features, and put them in a pkl file.
+
+```python
+python oge.py --dir <path/to/folder> --embeddings <path/to/pkl/file>
+#OR
+python oge.py -d <path/to/folder> -e <path/to/pkl/file>
+
+#Example
+python oge.py --dir ./data/test --embeddings test.pkl
+python oge.py -d ./data/test -e test.pkl
+```
+
+The long part will be the beginning, which detects the faces and saves them to 160x160 images.
+The next part is quick, and resizes the 160x160 images to 96x112 images.
+The last part is feature extraction, which has actually been rather quick the past couple of times I've tried it... which is nice!
+
+If you have any problems running this, lmk! 
+
+Best,
+PT
+
+
+
 # SphereFace
 A PyTorch Implementation of SphereFace.
 The code can be trained on CASIA-Webface and the best accuracy on LFW is **99.22%**.
